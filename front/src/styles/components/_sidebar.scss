@@ -1,0 +1,123 @@
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    min-height: 100vh;
+    height: 100%;
+    padding: 1rem;
+    background-color: white;
+    color: #3ACDDA;
+
+    transition: 0.2s ease-out;
+
+    .logo{
+        margin-bottom: 1rem;
+        img{
+            width: 2rem;
+        }
+    }
+
+    .flex{
+        flex: 1 1 0;
+    }
+
+    .menu-toggle-wrap{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+        position: relative;
+        top: 0;
+        transition: 0.2s ease-out;
+        .menu-toggle{
+            transition: 0.2s ease-out;
+
+            .material-icons{
+                font-size: 2rem;
+                color: $light;
+                transition: 00.2s ease-out;
+            }
+
+            &:hover{
+                .material-icons{
+                    color: $primary;
+                    transform: translateX(0.5rem);
+                }
+            }
+        }
+    }
+
+    h3, .button .text {
+        opacity: 0;
+        font-size: 0px;
+        transition: 0.3s ease-out;
+    }
+
+    h3{
+        color: black;
+        font-size: 24px;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    .menu{
+        margin: 0 -1rem;
+
+        .button{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: 0.20s ease-out;
+
+            .material-icons{
+                font-size: 2rem;
+                color: black;                
+                transition: 0.2s ease-out;
+            }
+
+            .text{
+                color: black;
+                transition: 0.2s ease-out;
+            }
+
+            &:hover, &.active {
+                .material-icons, .text{
+                    color: $primary;
+                }
+            }
+
+            &.active{
+                border-right: 5px solid $primary;
+            }
+        }
+    }
+
+    &.is_expanded{
+        width: $sidebar-width;
+
+        .menu-toggle-wrap{
+            top: -3em;
+            .menu-toggle{
+                transform: rotate(-180deg);
+            }
+        }
+
+        h3, .button .text {
+            font-size: 1rem;
+            opacity: 1;
+            transition: 0.3s ease-out;
+        }
+        
+        .button{
+            .material-icons{
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        position: fixed;
+        z-index: 99;
+        min-height: 100%;
+    }
+}
