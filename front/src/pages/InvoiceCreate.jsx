@@ -17,7 +17,7 @@ const InvoiceCreate = () => {
 	useEffect(() => {
 		const fetchTypes = async () => {
 			try {
-				const response = await axios.get("http://localhost:3333/api/types");
+				const response = await axios.get("http://13.38.94.176:3333/api/types");
 				setTypes(response.data);
 			} catch (error) {
 				console.error(error);
@@ -47,7 +47,7 @@ const InvoiceCreate = () => {
 		setLoading(true);
 
 		const response = await axios.post(
-			"http://localhost:3333/api/analyze",
+			"http://13.38.94.176:3333/api/analyze",
 			formData,
 			{
 				headers: {
@@ -85,7 +85,7 @@ const InvoiceCreate = () => {
 		formData.append("type_id", invoice.type_id);
 
 		try {
-			await axios.post("http://localhost:3333/api/invoices/", formData, {
+			await axios.post("http://13.38.94.176:3333/api/invoices/", formData, {
 				headers: {
 					"Content-Type": "multipart/form-data",
 				},

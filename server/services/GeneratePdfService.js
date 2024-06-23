@@ -19,7 +19,7 @@ const generatePdf = async (invoices, templatePath, outputPath, startDate, endDat
             return `
             <div style="margin-top: 2rem;">
                 <h3>${invoice.title}</h3>
-                <img style="max-height: 700px" src="${'http://localhost:3333/' + invoice.image_url}" alt="${invoice.image_url}" />
+                <img style="max-height: 700px" src="${'http://13.38.94.176:3333/' + invoice.image_url}" alt="${invoice.image_url}" />
             </div>
             `;
         }
@@ -43,7 +43,7 @@ const generatePdf = async (invoices, templatePath, outputPath, startDate, endDat
     await page.pdf({ path: outputPath, format: 'A4' });
 
     // get url
-    const pdfLink = "http://localhost:3333/uploads/" + outputPath.split('/').pop();
+    const pdfLink = "http://13.38.94.176:3333/uploads/" + outputPath.split('/').pop();
 
     await browser.close();
 

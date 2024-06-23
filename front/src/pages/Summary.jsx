@@ -12,7 +12,7 @@ const Summary = () => {
 
     const fetchSummaries = async () => {
         try {
-            const response = await axios.get('http://localhost:3333/api/summaries');
+            const response = await axios.get('http://13.38.94.176:3333/api/summaries');
 
             let datatest = response.data.map(obj => {
                 return [
@@ -40,7 +40,7 @@ const Summary = () => {
         }
 
         try {
-            await axios.delete(`http://localhost:3333/api/summaries/${id}`);
+            await axios.delete(`http://13.38.94.176:3333/api/summaries/${id}`);
             fetchSummaries();
         } catch (error) {
             console.error(error);
@@ -62,7 +62,7 @@ const Summary = () => {
     }, []);
 
     const generateMonthlySummary = async () => {
-        await axios.post('http://localhost:3333/api/summaries', {
+        await axios.post('http://13.38.94.176:3333/api/summaries', {
             start_date: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
             end_date: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
             generated_date: new Date(),
@@ -72,7 +72,7 @@ const Summary = () => {
     };
 
     const generateLastSixMonthsSummary = async () => {
-        await axios.post('http://localhost:3333/api/summaries', {
+        await axios.post('http://13.38.94.176:3333/api/summaries', {
             start_date: new Date(new Date().getFullYear(), new Date().getMonth() - 6, 1),
             end_date: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
             generated_date: new Date(),
@@ -83,7 +83,7 @@ const Summary = () => {
 
     const handleCustomSummarySubmit = async (event) => {
         event.preventDefault();
-        await axios.post('http://localhost:3333/api/summaries', {
+        await axios.post('http://13.38.94.176:3333/api/summaries', {
             start_date: customStartDate,
             end_date: customEndDate,
             generated_date: new Date(),

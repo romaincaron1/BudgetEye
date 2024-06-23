@@ -11,7 +11,7 @@ const GlobalView = () => {
 
     const fetchInvoices = async () => {
         try {
-            const response = await axios.get('http://localhost:3333/api/invoices');
+            const response = await axios.get('http://13.38.94.176:3333/api/invoices');
             setInvoices(response.data);
             calculateTotalAmount(response.data);
         } catch (error) {
@@ -21,7 +21,7 @@ const GlobalView = () => {
 
     const fetchSummaries = async () => {
         try {
-            const response = await axios.get('http://localhost:3333/api/summaries');
+            const response = await axios.get('http://13.38.94.176:3333/api/summaries');
             setSummaries(response.data);
         } catch (error) {
             console.error(error);
