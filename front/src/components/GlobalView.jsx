@@ -61,7 +61,7 @@ const GlobalView = () => {
                     </div>
                     <div className="flex flex-col">
                         <span className="text-xs">Montant total des factures</span>
-                        <span className="font-bold">{totalAmount}€</span>
+                        <span className="font-bold">{totalAmount.toFixed(2)}€</span>
                     </div>
                 </div>
                 <div className="bg-white rounded flex gap-2 p-3">
