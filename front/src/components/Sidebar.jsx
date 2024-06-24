@@ -31,6 +31,10 @@ const Sidebar = () => {
                     <img src="" alt=""/>
                 </div>
 
+                <div className="toggle" onClick={ToggleMenu}>
+                    <span className="material-icons">{openTab ? 'close' : 'menu'}</span>
+                </div>
+                
                 <h3 className="logo">BudgetEye.</h3>
                 <div className="menu">
                         <NavLink className={"button"} to={"/"}>
