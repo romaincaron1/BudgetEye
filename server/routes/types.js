@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     const types = await Type.find().sort('name');
+    console.log(types);
     res.send(types);
 });
 

@@ -46,6 +46,7 @@ const Category = () => {
 	const fetchInvoices = async () => {
 		try {
 			const response = await axios.get("http://13.38.94.176:3333/api/invoices");
+			console.log(response)
 			setInvoices(response.data);
 		} catch (error) {
 			console.error("Failed to fetch invoices:", error);
