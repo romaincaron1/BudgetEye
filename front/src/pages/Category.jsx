@@ -20,6 +20,7 @@ const Category = () => {
 	const fetchTypes = async () => {
 		try {
 			const response = await axios.get("http://13.38.94.176:3333/api/types");
+			console.log("get type",response)
 			// Modifiez votre tableau de données pour utiliser la fonction renderThresholdComparison
 			const datatest = response.data.map((obj) => {
 				return [
@@ -46,7 +47,6 @@ const Category = () => {
 	const fetchInvoices = async () => {
 		try {
 			const response = await axios.get("http://13.38.94.176:3333/api/invoices");
-			console.log(response)
 			setInvoices(response.data);
 		} catch (error) {
 			console.error("Failed to fetch invoices:", error);

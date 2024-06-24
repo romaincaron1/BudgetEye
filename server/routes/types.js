@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
+    console.log("get types")
     const types = await Type.find().sort('name');
-    console.log(types);
+    console.log("types",types);
     res.send(types);
 });
 
