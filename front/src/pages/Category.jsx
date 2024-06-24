@@ -133,10 +133,8 @@ const Category = () => {
       }, []);
     
       useEffect(() => {
-        if (invoices.length > 0) {
-          fetchTypes();
-          setDataFetched(true);
-        }
+		fetchTypes();
+		setDataFetched(true);
       }, [invoices]);
 
 	return (
