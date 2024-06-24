@@ -10,33 +10,48 @@ router.get('/', async (req, res) => {
     res.send(summaries);
 });
 
-router.post('/',async (req, res) => {
-    const startDate = new Date(req.body.start_date);
-    const endDate = new Date(req.body.end_date);
-    const invoices = await Invoice.find({
-        date: {
-            $gte: req.body.start_date,
-            $lte: req.body.end_date,
-        },
-        archived: false,
-    });
+router.post('/', async (req, res) => {
+    try {
+        const startDate = new Date(req.body.start_date);
+        const endDate = new Date(req.body.end_date);
 
-    let pdfLink = '';
+        console.log('Start Date:', startDate);
+        console.log('End Date:', endDate);
 
-    const templatePath = path.join(__dirname, '../public', 'template', 'invoice-pdf.html');
-    const outputPath = path.join(__dirname, '../public/uploads/' + Date.now() + '.pdf');
+        const invoices = await Invoice.find({
+            date: {
+                $gte: startDate,
+                $lte: endDate,
+            },
+            archived: false,
+        });
 
-    pdfLink = await generatePdf(invoices, templatePath, outputPath, startDate, endDate);
+        console.log('Invoices found:', invoices.length);
 
-    const summary = new Summary({
-        start_date: req.body.start_date,
-        end_date: req.body.end_date,
-        generated_date: req.body.generated_date,
-        pdf_link: pdfLink,
-    });
-    await summary.save();
+        let pdfLink = '';
 
-    res.send(summary);
+        const templatePath = path.join(__dirname, '../public', 'template', 'invoice-pdf.html');
+        const outputPath = path.join(__dirname, '../public/uploads/' + Date.now() + '.pdf');
+
+        pdfLink = await generatePdf(invoices, templatePath, outputPath, startDate, endDate);
+
+        console.log('PDF generated:', pdfLink);
+
+        const summary = new Summary({
+            start_date: startDate,
+            end_date: endDate,
+            generated_date: new Date(req.body.generated_date),
+            pdf_link: pdfLink,
+        });
+
+        await summary.save();
+        console.log('Summary saved:', summary);
+
+        res.send(summary);
+    } catch (error) {
+        console.error('Error generating summary:', error);
+        res.status(500).send({ message: 'An error occurred while generating the summary', error });
+    }
 });
 
 router.put('/:id',async (req, res) => {
