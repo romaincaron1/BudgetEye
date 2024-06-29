@@ -9,12 +9,12 @@ const InvoiceArchive = () => {
 	const [dataFetched, setDataFetched] = useState(false);
 	const [data, setData] = useState([]);
 
-	// fetch invoices from api 'http://13.38.94.176:3333/api/invoices'
+	// fetch invoices from api 'http://52.90.40.101:3333/api/invoices'
 
 	const fetchInvoices = async () => {
 		try {
 			const response = await axios.get(
-				"http://13.38.94.176:3333/api/invoices?archived=true"
+				"http://52.90.40.101:3333/api/invoices?archived=true"
 			);
 
 			let datatest = response.data.map((obj) => {
@@ -56,7 +56,7 @@ const InvoiceArchive = () => {
 		}
 
 		try {
-			await axios.delete("http://13.38.94.176:3333/api/invoices/" + id);
+			await axios.delete("http://52.90.40.101:3333/api/invoices/" + id);
 			window.location.reload();
 		} catch (error) {
 			console.error(error);
@@ -73,7 +73,7 @@ const InvoiceArchive = () => {
 		}
 
 		try {
-			await axios.get("http://13.38.94.176:3333/api/invoices/unarchive/" + id);
+			await axios.get("http://52.90.40.101:3333/api/invoices/unarchive/" + id);
 			window.location.reload();
 		} catch (error) {
 			console.error(error);

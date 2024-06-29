@@ -12,7 +12,7 @@ const Home = () => {
   
       const fetchInvoices = async () => {
           try {
-              const response = await axios.get('http://13.38.94.176:3333/api/invoices');
+              const response = await axios.get('http://52.90.40.101:3333/api/invoices');
   
               let datatest = response.data.map(obj => {
                   return [
@@ -55,7 +55,7 @@ const Home = () => {
         }
 
         try {
-            await axios.delete('http://13.38.94.176:3333/api/invoices/' + id);
+            await axios.delete('http://52.90.40.101:3333/api/invoices/' + id);
             window.location.reload();
 
         } catch (error) {
@@ -71,7 +71,7 @@ const Home = () => {
         }
 
         try {
-            await axios.get('http://13.38.94.176:3333/api/invoices/archive/' + id);
+            await axios.get('http://52.90.40.101:3333/api/invoices/archive/' + id);
             window.location.reload();
 
         } catch (error) {
@@ -81,9 +81,9 @@ const Home = () => {
 
     const seeInvoice = async (id) => {
         try {
-            const response = await axios.get('http://13.38.94.176:3333/api/invoices/' + id);
+            const response = await axios.get('http://52.90.40.101:3333/api/invoices/' + id);
             //  redirect to home
-            window.open('http://13.38.94.176:3333/' + response.data.image_url, '_blank');
+            window.open('http://52.90.40.101:3333/' + response.data.image_url, '_blank');
 
         } catch (error) {
             console.error(error);

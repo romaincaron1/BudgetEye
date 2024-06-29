@@ -22,7 +22,7 @@ const InvoiceDetail = () => {
 		try {
 			let id = window.location.pathname.split("/")[2];
 			const response = await axios.get(
-				"http://13.38.94.176:3333/api/invoices/" + id
+				"http://52.90.40.101:3333/api/invoices/" + id
 			);
 			setInvoice(response.data);
 			setDataFetched(true);
@@ -33,7 +33,7 @@ const InvoiceDetail = () => {
 
 	const fetchTypes = async () => {
 		try {
-			const response = await axios.get("http://13.38.94.176:3333/api/types");
+			const response = await axios.get("http://52.90.40.101:3333/api/types");
 			setTypes(response.data);
 		} catch (error) {
 			console.error(error);
@@ -44,7 +44,7 @@ const InvoiceDetail = () => {
 		try {
 			let id = window.location.pathname.split("/")[2];
 			const response = await axios.put(
-				"http://13.38.94.176:3333/api/invoices/" + id,
+				"http://52.90.40.101:3333/api/invoices/" + id,
 				invoice
 			);
 			setInvoice(response.data);

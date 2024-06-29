@@ -15,11 +15,11 @@ const Category = () => {
 		treshold: "",
 	});
 
-	// fetch invoices from api 'http://13.38.94.176:3333/api/invoices'
+	// fetch invoices from api 'http://52.90.40.101:3333/api/invoices'
 
 	const fetchTypes = async () => {
 		try {
-			const response = await axios.get("http://13.38.94.176:3333/api/types");
+			const response = await axios.get("http://52.90.40.101:3333/api/types");
 			console.log("get type",response)
 			// Modifiez votre tableau de données pour utiliser la fonction renderThresholdComparison
 			const datatest = response.data.map((obj) => {
@@ -46,7 +46,7 @@ const Category = () => {
 
 	const fetchInvoices = async () => {
 		try {
-			const response = await axios.get("http://13.38.94.176:3333/api/invoices");
+			const response = await axios.get("http://52.90.40.101:3333/api/invoices");
 			setInvoices(response.data);
 		} catch (error) {
 			console.error("Failed to fetch invoices:", error);
@@ -73,7 +73,7 @@ const Category = () => {
 		}
 
 		try {
-			await axios.delete("http://13.38.94.176:3333/api/types/" + id);
+			await axios.delete("http://52.90.40.101:3333/api/types/" + id);
 			window.location.reload();
 		} catch (error) {
 			console.error(error);
@@ -95,7 +95,7 @@ const Category = () => {
 			};
 
 			const response = await axios.post(
-				"http://13.38.94.176:3333/api/types",
+				"http://52.90.40.101:3333/api/types",
 				newType
 			);
 			setType(response.data);
