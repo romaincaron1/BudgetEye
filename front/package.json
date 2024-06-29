@@ -41,7 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node --max-old-space-size=3000 react-scripts build --max_old_space_size=3000",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
