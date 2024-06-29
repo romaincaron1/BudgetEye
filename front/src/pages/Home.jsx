@@ -23,7 +23,7 @@ const Home = () => {
                             <span className="badge" style={{ background: obj.type_id.color }}>{obj.type_id.name}</span>
                         ) : 'Non classé',
                       <>
-                        <NavLink className={"button"} to={"/invoices/" + obj._id}>
+                        <NavLink className="button edit" to={"/invoices/" + obj._id}>
                             <span className="material-icons">edit</span>
                         </NavLink>
                         <span onClick={() => deleteInvoice(obj._id)} className="material-icons cursor-pointer">delete</span>

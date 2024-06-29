@@ -43,14 +43,14 @@
 
 .right-container{
     width: 30%;
-    padding: 5rem 2.5rem 5rem 2.5rem;
+    padding: 1rem 2.5rem 1rem 2.5rem;
 }
 
 // - de 800 px, 100% pour main-container et right-container
 @media (max-width: 1000px) {
     .main-container, .right-container{
         width: 100%;
-        padding: 5rem 2.5rem 5rem 2.5rem;
+        padding: 1rem 2.5rem 1rem 2.5rem;
     }
 }
 
