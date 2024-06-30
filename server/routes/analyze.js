@@ -47,7 +47,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 	// Redimensionner l'image avec sharp
 	try {
-		await sharp(filePath).resize({ width: 200 }).toFile(`${filePath}-resized`);
+		await sharp(filePath).resize({ width: 500 }).toFile(`${filePath}-resized`);
 
 		const resizedFilePath = `${filePath}-resized`;
 
@@ -75,10 +75,9 @@ router.post("/", upload.single("image"), async (req, res) => {
                 Il faut que tu me renvoies un JSON contenant un objet facture avec les propriétés suivantes :
                 - title: nom du lieu ou de l'établissement où la facture a été générée (UTF-8)
                 - date: date de la facture au format YYYY-MM-DD
-                - total_ttc: montant total TTC de la facture (nombre décimal)
+                - total_ttc: montant total TTC de la facture (nombre décimal) : le montant doit être noté quelque part sur l'image avec total ttc ou bien simplement total
                 - type_id: identifiant du type de la facture, correspondant à l'un des types suivants : ${typeNames}
                 Assure-toi que les informations renvoyées sont correctes et correspondent exactement aux détails de la facture. Par exemple, si la facture provient d'un restaurant comme McDonald's, le titre devrait être "McDonald's", et le type devrait correspondre au type de transaction, comme "Nourriture", et non "Essence".
-                
         `;
 
 				const openAiResponse = await openai.chat.completions.create({
